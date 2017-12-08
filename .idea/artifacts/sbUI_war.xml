@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="sbUI:war">
+    <output-path>$PROJECT_DIR$/sbUI/target</output-path>
+    <root id="archive" name="sbUI-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="sbUI:war exploded" />
+    </root>
+  </artifact>
+</component>

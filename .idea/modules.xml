@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SmartBlanket.iml" filepath="$PROJECT_DIR$/SmartBlanket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sbJar/sbJar.iml" filepath="$PROJECT_DIR$/sbJar/sbJar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sbUI/sbUI.iml" filepath="$PROJECT_DIR$/sbUI/sbUI.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Smart Blanket  </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="scripts/libs/jquery-3.2.1.js"></script>
+    <script src="scripts/common/library.js"></script>
+    <script src="scripts/common/initial.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+
+    <link rel="stylesheet" href="styles/bulma/css/bulma.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" type="text/css" href="styles/common.css">
+
+
+</head>
+<body>
+
+   <nav id="navigator" class="navbar is-fluid" aria-label="main navigation">
+       <div class="navbar-brand">
+           <a href="#">
+               <h2>Smart Blanket</h2>
+           </a>
+       </div>
+       <div class="tabs navbar-end is-toggle is-fullwidth" id="nav_tabs">
+           <ul>
+               <li class="is-active">
+                   <span id="status">
+                       <a>Current Status</a>
+                   </span>
+               </li>
+               <li>
+                   <span id="statistics">
+                       <a>Statistics</a>
+                   </span>
+               </li>
+               <li>
+                   <span id="addBlanket">
+                       <a>Blankets</a>
+                   </span>
+               </li>
+               <li>
+                   <span id="cabinet">
+                       <a>Cabinet</a>
+                   </span>
+               </li>
+           </ul>
+       </div>
+   </nav>
+
+   <section class="section tab-section" id="statusPanel">
+       <div class="container">
+
+           <div class="columns">
+
+               <div class="column">
+                   <div class="level-item has-text-centered">
+                       <div>
+                           <p class="heading">Last synchronization on</p>
+                           <p class="title" id="last_sync_status">*</p>
+                       </div>
+                   </div>
+                   <br/>
+                   <br/>
+                   <br/>
+               </div>
+
+               <div class="column">
+                   <div class="level-item has-text-centered">
+                       <div>
+                           <p class="heading">Last synchronization at</p>
+                           <p class="title" id="last_sync_time">*</p>
+                       </div>
+                   </div>
+                   <br/>
+                   <br/>
+                   <br/>
+               </div>
+
+           </div>
+       </div>
+   </section>
+
+   <section class="section tab-section is-hidden" id="statisticsPanel">
+       <div class="container">
+
+           <div class="columns">
+
+               <div class="column">
+                   <div class="level-item has-text-centered">
+                       <div>
+                           <p class="heading">Statistics recorded for</p>
+                           <p class="title" id="all_days">34 C</p>
+                       </div>
+                   </div>
+                   <br/>
+                   <br/>
+                   <br/>
+                   <div class="level-item has-text-centered">
+                       <div>
+                           <p class="heading">Average temperature</p>
+                           <canvas id="chart_temp_avg" width="500" height="400"></canvas>
+                       </div>
+                   </div>
+                   <br/>
+                   <br/>
+                   <br/>
+
+               </div>
+               <div class="column">
+                   <div class="level-item has-text-centered">
+                       <div>
+                           <p class="heading">Last synchronization on</p>
+                           <p class="title" id="last_sync">34 C</p>
+                       </div>
+                   </div>
+                   <br/>
+                   <br/>
+                   <br/>
+                   <div class="level-item has-text-centered">
+                       <div>
+                           <p class="heading">Average temperature</p>
+                           <canvas id="chart_vibr_avg" width="500" height="400"></canvas>
+                       </div>
+                   </div>
+                   <br/>
+                   <br/>
+                   <br/>
+                   <div class="level-item has-text-centered">
+                       <div>
+                           <p class="heading">Average vibration</p>
+                           <p class="title" id="cur_avg_vibration">34 C</p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <section class="section tab-section is-hidden" id="blanketPanel">
+       <div class="container">
+
+           <div class="level">
+               <div class="level-item has-text-centered">
+                   <div>
+                       <p class="heading">Quantity of related blankets</p>
+                       <p class="title" id="quantity_of_blankets">*</p>
+                   </div>
+               </div>
+           </div>
+           <br/>
+           <br/>
+
+           <div class="level">
+               <div class="level-item level-left has-text-centered">
+                   <div>
+                       <p class="title">Related blankets:</p>
+                   </div>
+               </div>
+           </div>
+           <br/>
+           <div class="columns">
+               <div class="column">
+                   <div class="level-item level-left has-text-centered">
+                       <table class="table">
+                           <thead>
+                               <tr>
+                                   <th><abbr title="Position">Number</abbr></th>
+                                   <th>Serial Key</th>
+                               </tr>
+                           </thead>
+                           <tbody id="blanket_tbody">
+
+                           </tbody>
+                           <tfoot>
+                                <tr><td></td><td></td></tr>
+                           </tfoot>
+                       </table>
+                   </div>
+               </div>
+
+               <div class="column">
+                   <div class="level-item has-text-centered">
+                       <div>
+                           <p class="title">Add new blanket</p>
+                       </div>
+                   </div>
+                   <br/>
+                   <div class="level-item has-text-centered">
+                       <div>
+                           <div class="columns">
+                               <div class="column">
+                                   <input class="input" id="add_serial" style="width: 300px" placeholder="Enter serial key of the blanket">
+                               </div>
+                               <div class="column">
+                                   <button class="button is-info" id="blanket_submit">Add</button>
+                               </div>
+
+                           </div>
+                       </div>
+                   </div>
+                   <div class="level-item has-text-centered">
+                           <p id="add_blanket_help" class="help is-danger is-hidden">Invalid serial key value!</p>
+                           <p id="add_blanket_success" class="help is-success is-hidden">Blanket has been added!</p>
+                   </div>
+
+                   <br/>
+                   <br/>
+                   <br/>
+                   <br/>
+
+                   <div class="level-item has-text-centered">
+                       <div>
+                           <p class="title">Remove related blanket</p>
+                       </div>
+                   </div>
+                   <br/>
+                   <div class="level-item has-text-centered">
+                       <div>
+                           <div class="columns">
+                               <div class="column">
+                                   <input class="input" id="delete_serial" style="width: 300px" placeholder="Enter serial key of the blanket">
+                               </div>
+                               <div class="column">
+                                   <button class="button is-info" id="blanket_delete_submit">Remove</button>
+                               </div>
+                           </div>
+
+                       </div>
+                   </div>
+                   <div class="level-item has-text-centered">
+                       <p id="remove_blanket_help" class="help is-danger is-hidden">Invalid serial key value!</p>
+                       <p id="remove_blanket_success" class="help is-success is-hidden">Blanket has been removed!</p>
+                   </div>
+
+               </div>
+
+           </div>
+       </div>
+   </section>
+
+   <section class="section tab-section is-hidden" id="cabinetPanel">
+       <div class="container">
+
+           <div class="columns">
+
+               <div class="column is-two-fifths">
+                   <div class="level-item level-left">
+                       <div>
+                           <p class="heading">Username</p>
+                           <p class="title" id="cab_username"></p>
+                       </div>
+                   </div>
+                   <br/>
+                   <br/>
+                   <div class="level-item level-left">
+                       <div>
+                           <p class="heading">Email</p>
+                           <p class="title" id="cab_email">3,456</p>
+                       </div>
+                   </div>
+                   <br/>
+                   <br/>
+                   <div class="level-item level-left">
+                       <div>
+                           <p class="heading">Phone number</p>
+                           <p class="title" id="cab_phone">3,456</p>
+                       </div>
+                   </div>
+                   <br/>
+                   <br/>
+                   <div class="level-item level-left">
+                       <div>
+                           <p class="heading">Birth date</p>
+                           <p class="title" id="cab_birth">3,456</p>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="column">
+
+               </div>
+           </div>
+       </div>
+   </section>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+        <context:component-scan base-package="com.blanket"/>
+        <mvc:annotation-driven/>
+
+        <!-- DAOs -->
+        <bean name="userDao" class="com.blanket.data.dao.impl.UserDaoImpl"/>
+        <bean name="blanketDao" class="com.blanket.data.dao.impl.BlanketDaoImpl"/>
+        <bean name="blanketStatusDao" class="com.blanket.data.dao.impl.BlanketStatusDaoImpl"/>
+        <bean name="blanketCommandDao" class="com.blanket.data.dao.impl.BlanketCommandDaoImpl"/>
+        <!-- Services -->
+        <bean name="userService" class="com.blanket.service.impl.UserServiceImpl"/>
+        <bean name="securityService" class="com.blanket.service.impl.SecurityServiceImpl"/>
+        <bean name="blanketService" class="com.blanket.service.impl.BlanketServiceImpl"/>
+        <bean name="blanketCommandService" class="com.blanket.service.impl.BlanketCommandServiceImpl"/>
+        <bean name="userDataService" class="com.blanket.service.impl.UserDataServiceImpl"/>
+        <bean name="statisticsProviderService" class="com.blanket.service.impl.StatisticsProviderServiceImpl"/>
+</beans>
+
+
+

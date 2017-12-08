@@ -1,0 +1,53 @@
+#registration, #authorization {
+    margin: auto;
+    padding: 20px 0 20px 0;
+    width: 320px;
+    /*height: 600px;*/
+}
+
+#authorization {
+    padding: 20px 0 40px 0;
+}
+
+.regInput {
+    position: relative;
+    width: 200px;
+    padding: 0;
+    margin: 0;
+    height: 30px;
+    font-size: 22px;
+    border-radius: 4px;
+}
+
+#registration p {
+    margin-bottom: 0;
+}
+
+.field {
+
+}
+
+.label {
+    text-transform: uppercase;
+    display: block;
+    color: black;
+    font-size: 38px;
+}
+
+#submitReg {
+    margin: auto;
+}
+
+.chart_img {
+    background: url("../img/images.jpg") no-repeat;
+    width: inherit;
+    height: 69px;
+    margin-bottom: 0px;
+    background-size: contain;
+
+
+}
+
+#registration .label {
+    font-weight: 200;
+}
